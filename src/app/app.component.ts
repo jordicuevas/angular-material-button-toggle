@@ -1,3 +1,4 @@
+import { FormGroup,FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'button-toogle';
+  buttonT: FormGroup
+  constructor(public fb: FormBuilder) {
+     this.buttonT = fb.group({
+       botonera: []
+     });
+     this.buttonT.controls['botonera'].valueChanges.subscribe((data: any) => {
+       console.log(data);
+     })
+  }
+
 }
